@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       sendAPI();
-    }, 40000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [sendAPI]);
