@@ -9,7 +9,7 @@ function App() {
   // Define the API function with useCallback to avoid dependency issues
   const sendAPI = useCallback(async () => {
     try {
-      const response = await axios.post(`${baseURL}/user/signin`, {
+      await axios.post(`${baseURL}/user/signin`, {
         email: "vishwanath@gmail.com",
         password: "9019393599$$Vv"
       },
