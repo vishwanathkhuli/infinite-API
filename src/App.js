@@ -9,27 +9,28 @@ function App() {
   // Define the API function with useCallback to avoid dependency issues
   const sendAPI = useCallback(async () => {
     try {
-      await axios.post(`${baseURL}/user/signin`, {
+      const response = await axios.post(`${baseURL}/user/signin`, {
         email: "vishwanath@gmail.com",
         password: "9019393599$$Vv"
-      });
+      },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+      console.log(response.data);
     } catch (err) {
       console.error("API Error:", err);
     }
   }, [baseURL]);
 
   useEffect(() => {
-    // Fetch immediately on mount
-    sendAPI();
-
-    // Set interval to fetch every 2 seconds
     const interval = setInterval(() => {
       sendAPI();
-    }, 50000);
+    }, 5000);
 
-    // Cleanup function to clear interval when component unmounts
     return () => clearInterval(interval);
-  }, [sendAPI]); // Now sendAPI is correctly passed as a dependency
+  }, [sendAPI]);
 
   return (
     <div className="App">
