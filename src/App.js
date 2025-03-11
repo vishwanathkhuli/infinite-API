@@ -18,8 +18,6 @@ function App() {
             "Content-Type": "application/json",
           },
         });
-      console.log(response.data);
-      console.log("Base Url " + baseURL);
     } catch (err) {
       console.error("API Error:", err);
     }
@@ -28,7 +26,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       sendAPI();
-    }, 5000);
+    }, 40000);
 
     return () => clearInterval(interval);
   }, [sendAPI]);
