@@ -19,6 +19,7 @@ function App() {
           },
         });
       console.log(response.data);
+      console.log("Base Url " + baseURL);
     } catch (err) {
       console.error("API Error:", err);
     }
